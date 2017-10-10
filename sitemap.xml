@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://thewhyoffry.github.io/bcbuguides/bash/_intro/</loc>
+    <loc>http://thewhyoffry.github.io/bcbuguides/bash/</loc>
     <lastmod>2017-10-10T11:51:47+02:00</lastmod>
   </url>
   
@@ -28,17 +28,10 @@
   
   <url>
     <loc>http://thewhyoffry.github.io/bcbuguides/</loc>
-    <lastmod>2017-10-10T11:51:47+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://thewhyoffry.github.io/bcbuguides/bash/bashmagic/</loc>
-  </url>
-  
-  <url>
-    <loc>http://thewhyoffry.github.io/bcbuguides/bash/</loc>
-    <lastmod>2017-10-10T11:51:47+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

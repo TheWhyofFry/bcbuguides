@@ -6,19 +6,9 @@
     <description>Recent content on General Bioinformatics Guides</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Oct 2017 11:51:47 +0200</lastBuildDate>
     
 	<atom:link href="http://thewhyoffry.github.io/bcbuguides/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>bashcover</title>
-      <link>http://thewhyoffry.github.io/bcbuguides/bash/_intro/</link>
-      <pubDate>Tue, 10 Oct 2017 11:51:47 +0200</pubDate>
-      
-      <guid>http://thewhyoffry.github.io/bcbuguides/bash/_intro/</guid>
-      <description>Introduction BASH Accomplishing tasks in the BASH shell</description>
-    </item>
     
     <item>
       <title>A prep guide to Bioinformatics on the command line</title>
