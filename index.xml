@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General Bioinformatics Guides</title>
+    <link>http://thewhyoffry.github.io/bcbuguides/</link>
+    <description>Recent content on General Bioinformatics Guides</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Oct 2017 11:51:47 +0200</lastBuildDate>
+    
+	<atom:link href="http://thewhyoffry.github.io/bcbuguides/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>bashcover</title>
+      <link>http://thewhyoffry.github.io/bcbuguides/bash/_intro/</link>
+      <pubDate>Tue, 10 Oct 2017 11:51:47 +0200</pubDate>
+      
+      <guid>http://thewhyoffry.github.io/bcbuguides/bash/_intro/</guid>
+      <description>Introduction BASH Accomplishing tasks in the BASH shell</description>
+    </item>
+    
+    <item>
+      <title>A prep guide to Bioinformatics on the command line</title>
+      <link>http://thewhyoffry.github.io/bcbuguides/chpc/chpcprep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://thewhyoffry.github.io/bcbuguides/chpc/chpcprep/</guid>
+      <description>Foreword This guide is intended for beginner/intermediate users of general Bioinformatics tools. The end goal being successful usage of the CHPC and cluster environments in general. Since skill levels vary, I&amp;rsquo;ve included a preamble that will cover general execution of commands from a shell and how, with advancement of general computing has allowed us to scale up processes that would elsewise take longer to run than it does to write up a thesis - or a supervisor to evaluate said thesis :-)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://thewhyoffry.github.io/bcbuguides/bash/bashmagic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://thewhyoffry.github.io/bcbuguides/bash/bashmagic/</guid>
+      <description>Making the most out of a little bash Up to now, we&amp;rsquo;ve used BASH scripts to do simple stuff. Generated PBS scrtips with variable names (such as paths to our inputs). I&amp;rsquo;ve only done a moderate amount of intermediate BASH, but it&amp;rsquo;s very useful. This document is all about how to make your life easier when you have loads of sequence data from multitple samples.
+In a hypothetical experiment, we have two replicates for three different conditions.</description>
+    </item>
+    
+  </channel>
+</rss>

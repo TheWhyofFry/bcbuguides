@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.26-DEV" />
+    <meta name="description" content="">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <title>A prep guide to Bioinformatics on the command line :: General Bioinformatics Guides</title>
+    
+    
+    <link href="/bcbuguides/css/nucleus.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/font-awesome.min.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/hybrid.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/featherlight.min.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/perfect-scrollbar.min.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/auto-complete.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/theme.css?1507631311" rel="stylesheet">
+    <link href="/bcbuguides/css/hugo-theme.css?1507631311" rel="stylesheet">
+    
+
+    <script src="/bcbuguides/js/jquery-2.x.min.js?1507631311"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/bcbuguides/chpc/chpcprep/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="http://getgrav.org">
+  <svg id="grav-logo" width="100%" height="100%" viewBox="0 0 504 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <path d="M235.832,71.564l-7.98,-0.001c-1.213,0.001 -2.197,0.987 -2.197,2.204l0,15.327l-0.158,0.132c-4.696,3.962 -10.634,6.14 -16.719,6.14c-14.356,0 -26.034,-11.68 -26.034,-26.037c0,-14.358 11.678,-26.035 26.034,-26.035c5.582,0 10.919,1.767 15.437,5.113c0.877,0.649 2.093,0.56 2.866,-0.211l5.69,-5.69c0.444,-0.442 0.675,-1.055 0.639,-1.681c-0.034,-0.627 -0.336,-1.206 -0.828,-1.597c-6.76,-5.363 -15.214,-8.314 -23.805,-8.314c-21.18,0 -38.414,17.233 -38.414,38.415c0,21.183 17.234,38.415 38.414,38.415c10.937,0 21.397,-4.705 28.698,-12.914c0.358,-0.403 0.556,-0.921 0.556,-1.46l0,-19.603c0,-1.217 -0.985,-2.203 -2.2,-2.203"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M502.794,34.445c-0.408,-0.616 -1.1,-0.989 -1.838,-0.989l-8.684,0c-0.879,0 -1.673,0.522 -2.022,1.329l-24.483,56.839l-24.92,-56.852c-0.352,-0.799 -1.142,-1.316 -2.012,-1.316l-8.713,0c-0.744,0 -1.44,0.373 -1.843,0.995c-0.408,0.623 -0.476,1.408 -0.174,2.09l30.186,68.858c0.352,0.799 1.143,1.317 2.017,1.317l10.992,0c0.879,0 1.673,-0.527 2.021,-1.329l29.655,-68.861c0.289,-0.68 0.222,-1.461 -0.182,-2.081"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M388.683,34.772c-0.353,-0.798 -1.142,-1.316 -2.017,-1.316l-10.988,0c-0.879,0 -1.673,0.522 -2.021,1.329l-29.655,68.861c-0.294,0.675 -0.226,1.46 0.182,2.077c0.407,0.619 1.096,0.993 1.838,0.993l8.684,0c0.879,0 1.673,-0.526 2.022,-1.329l24.478,-56.842l24.92,56.854c0.353,0.798 1.143,1.317 2.013,1.317l8.717,0c0.744,0 1.44,-0.374 1.843,-0.993c0.408,-0.624 0.471,-1.41 0.174,-2.094l-30.19,-68.857Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M309.196,81.525l0.476,-0.229c8.675,-4.191 14.279,-13.087 14.279,-22.667c0,-13.881 -11.295,-25.174 -25.176,-25.174l-31.863,0c-1.214,0 -2.199,0.988 -2.199,2.202l0,68.855c0,1.219 0.985,2.204 2.199,2.204l7.979,0c1.214,0 2.2,-0.985 2.2,-2.204l0,-58.679l21.684,0c7.059,0 12.799,5.739 12.799,12.796c0,5.885 -3.996,10.989 -9.728,12.408c-1.032,0.261 -2.064,0.393 -3.071,0.393l-7.977,0c-0.829,0 -1.585,0.467 -1.959,1.205c-0.378,0.74 -0.305,1.625 0.187,2.296l22.62,30.884c0.412,0.566 1.07,0.901 1.771,0.901l9.915,0c0.827,0 1.587,-0.467 1.96,-1.207c0.378,-0.742 0.302,-1.629 -0.186,-2.296l-15.91,-21.688Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M107.191,80.969c-7.255,-4.794 -11.4,-8.845 -15.011,-16.109c-2.47,4.977 -8.236,12.376 -17.962,18.198c-4.856,15.106 -27.954,44.015 -35.43,39.916c-2.213,-1.212 -2.633,-2.808 -2.133,-4.456c0.536,-4.129 9.078,-13.62 9.078,-13.62c0,0 0.18,1.992 2.913,6.187c-3.609,-11.205 5.965,-25.031 8.5,-29.738c3.985,-1.269 4.274,-6.387 4.274,-6.387c0.255,-7.909 -3.278,-13.635 -6.701,-17.059c2.459,3.002 3.255,7.539 3.372,11.694l0,0.023c0.012,0.469 0.012,0.93 0.011,1.39c-0.117,3.439 -1.157,8.19 -3.383,8.19l0.006,0.03c-2.289,-0.098 -5.115,0.391 -7.639,1.18l-5.582,1.334c0,0 2.977,-0.136 4.584,1.252c-1.79,2.915 -5.769,6.533 -10.206,8.588c-6.457,2.995 -8.312,-2.964 -5.034,-6.838c0.805,-0.946 1.618,-1.745 2.387,-2.399c-0.495,-0.513 -0.807,-1.198 -0.889,-2.068c-0.001,-0.005 -0.004,-0.009 -0.005,-0.013c-0.45,-1.977 -0.202,-4.543 2.596,-8.623c0.551,-0.863 1.214,-1.748 2.007,-2.647c0.025,-0.031 0.046,-0.059 0.072,-0.089c0.034,-0.042 0.072,-0.08 0.108,-0.121c0.02,-0.023 0.039,-0.045 0.059,-0.068c0.2,-0.228 0.413,-0.45 0.639,-0.663c3.334,-3.414 8.599,-6.966 16.897,-10.152c9.675,-14.223 13.219,-16.89 13.219,-16.89c1.071,-1.096 2.943,-2.458 3.632,-2.805c-5.053,-8.781 -6.074,-21.158 -4.75,-24.493c-0.107,0.18 -0.206,0.365 -0.287,0.556c0.49,-1.143 0.819,-1.509 1.328,-2.111c1.381,-1.632 6.058,-2.488 7.737,0.971c0.895,1.844 1.063,4.232 1.034,6.023c-3.704,-0.193 -7.063,4.036 -7.063,4.036c0,0 3.067,-1.448 6.879,-1.473c0,0 1.015,0.883 2.283,2.542c-1.712,3.213 -4.524,10.021 -2.488,17.168c0.338,1.408 0.849,2.619 1.483,3.648c0.024,0.045 0.044,0.089 0.069,0.135c0.051,0.066 0.096,0.122 0.144,0.183c3.368,5.072 9.542,5.665 9.542,5.665c-2.906,-1.45 -5.274,-3.76 -6.816,-6.56c-0.8,-1.498 -1.291,-2.762 -1.592,-3.761c-1.636,-6.313 0.771,-9.999 2.149,-12.471c3.17,-4.917 8.944,-7.893 15.151,-7.185c8.712,0.995 14.968,8.862 13.973,17.571c-0.608,5.321 -3.781,9.723 -8.142,12.117c1.049,2.839 -0.073,6.28 -0.073,6.28c2.642,3.323 2.758,5.238 2.667,7.017c-3.357,-0.565 -6.618,1.701 -6.618,1.701c0,0 6.476,-1.546 10.238,1.81c2.446,2.631 4.078,5.009 5.051,6.766c1.393,2.505 7.859,2.683 7.123,7.188c-0.737,4.499 -5.669,4.542 -13.401,-0.56M69.571,0c-38.424,0 -69.571,31.148 -69.571,69.567c0,38.422 31.147,69.573 69.571,69.573c38.42,0 69.568,-31.151 69.568,-69.573c0,-38.42 -31.148,-69.567 -69.568,-69.567"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M73.796,51.693c0.813,-0.814 0.813,-2.134 0,-2.947c-0.815,-0.814 -2.133,-0.814 -2.947,0c-0.815,0.813 -0.815,2.133 0,2.947c0.814,0.813 2.132,0.813 2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M66.445,53.149c-0.814,0.813 -0.814,2.133 0,2.947c0.813,0.814 2.133,0.814 2.947,0c0.813,-0.814 0.813,-2.134 0,-2.947c-0.814,-0.813 -2.134,-0.813 -2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M79.231,54.233c-1.274,-1.274 -3.339,-1.272 -4.611,0l-2.713,2.712c-1.274,1.275 -1.274,3.339 0,4.612l2.978,2.978c1.274,1.275 3.338,1.274 4.611,0l2.712,-2.712c1.274,-1.274 1.274,-3.339 0,-4.612l-2.977,-2.978Z" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M95.759,41.445c-2.151,-2.578 1.869,-7.257 4.391,-4.463c4.645,5.148 -2.237,7.041 -4.391,4.463M105.004,44.132c3.442,-6.553 -1.427,-10.381 -4.773,-13.523c-5.36,-5.039 -10.706,-7.217 -16.811,-0.241c-6.102,6.977 -2.226,15.068 3.356,19.061c5.584,3.994 14.782,1.255 18.228,-5.297"
+      style="fill:#000;fill-rule:nonzero;"></path>
+  </svg>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/bcbuguides/js/lunr.min.js?1507631311"></script>
+<script type="text/javascript" src="/bcbuguides/js/auto-complete.js?1507631311"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/thewhyoffry.github.io\/bcbuguides";
+    
+</script>
+<script type="text/javascript" src="/bcbuguides/js/search.js?1507631311"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bcbuguides/chpc/" title="_index" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/bcbuguides/chpc/">
+          _index
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/bcbuguides/chpc/chpcprep/" title="A prep guide to Bioinformatics on the command line" class="dd-item active">
+        <a href="/bcbuguides/chpc/chpcprep/">
+        A prep guide to Bioinformatics on the command line
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bcbuguides/ngs/" title="_index" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bcbuguides/ngs/">
+          _index
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bcbuguides/ngs/rnaseq/" title="_index" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bcbuguides/ngs/rnaseq/">
+          _index
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bcbuguides/bash/" title="Bashes" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bcbuguides/bash/">
+          Bashes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/bcbuguides/bash/_intro/" title="bashcover" class="dd-item ">
+        <a href="/bcbuguides/bash/_intro/">
+        bashcover
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/bcbuguides/bash/bashmagic/" title="" class="dd-item ">
+        <a href="/bcbuguides/bash/bashmagic/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable sticky-parent">
+              
+              <div class="sticky-spacer">
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/bcbuguides/'></a> > <a href='/bcbuguides/chpc/'>_index</a> > A prep guide to Bioinformatics on the command line
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#foreword">Foreword</a></li>
+<li><a href="#preamble-beginner">Preamble (beginner)</a>
+<ul>
+<li><a href="#why-a-shell">Why a shell?</a></li>
+<li><a href="#things-you-should-know">Things you should know &hellip;</a></li>
+</ul></li>
+<li><a href="#the-limitations-of-a-local-pc">The limitations of a local PC</a>
+<ul>
+<li><a href="#processing-more-is-more">Processing - more is more</a></li>
+<li><a href="#memory-sans-technicalities">Memory (sans technicalities)</a></li>
+<li><a href="#storage">Storage</a></li>
+</ul></li>
+<li><a href="#secure-shell">Secure Shell</a></li>
+<li><a href="#high-performance-computing-environments-intermediate">High-performance computing environments (intermediate)</a>
+<ul>
+<li><a href="#cluster-environments">Cluster environments</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#pbs-scripts">PBS scripts</a>
+<ul>
+<li><a href="#erm-but-how-do-i-submit-a-job">Erm, but HOW do I submit a job?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>A prep guide to Bioinformatics on the command line</h1>
+          
+
+        
+
+
+
+
+<h1 id="foreword">Foreword</h1>
+
+<p>This guide is intended for beginner/intermediate users of general Bioinformatics tools.  The end goal being successful usage of the CHPC and cluster environments in general.  Since skill levels vary, I&rsquo;ve included a preamble that will cover general execution of commands from a shell and how, with advancement of general computing has allowed us to scale up processes that would elsewise take longer to run than it does to write up a thesis - or a supervisor to evaluate said thesis :-)</p>
+
+<p>The guide will be annotated with &ldquo;skill levels&rdquo;, each of which will assume a level of understanding.  These annotations are purely for those of you that would like to skip these sections.  I do recommend you to glance over them, just in case there is some information you may not be aware of.</p>
+
+<p>For the sake of brevity, this guide will not delve into the usage of the shell and general commands you would use on a Linux system. If you would like a tutorial on this, let me know.</p>
+
+<h1 id="preamble-beginner">Preamble (beginner)</h1>
+
+<p>Most of you have used some sort of bioinformatics application.  While there are different tiers in Bioinformatics, the start and end point is usually &ldquo;applied&rdquo; and &ldquo;core&rdquo; Bioinformatics.  Applied Bioinformatics is the use of extant tools to facilitate the answering of your sets of scientific question.  BLAST is a good example of this.  If you&rsquo;ve BLASTed, you have bioinformaticed (not a real word). While it is pretty cool to just paste your sequences into a web browser and wait for the bloop-dee-bloop to complete, it means a reliance on, for instance, the level congestion at the NCBI, the availability of an internet connection and Donald Trump. The &ldquo;core&rdquo; Bioinformatics is development of general Bioinformatics, e.g. the developers of BLAST are core Bioinformaticians.</p>
+
+<p>What if you wanted to BLAST against some of your own, still-in-the-process-of-publishing data? What if you specifically wanted to tweak parameters to your need that may not be available via the web interface? Luckily, BLAST has a download version available for you to run at your leisure.</p>
+
+<p>Whether you use Windows, Linux, Mac etc, chances are that you would at some point have to get acquainted with something called a &ldquo;shell&rdquo;.  Simply put, a shell is a textual window that accepts commands.  The shell interprets these commands and pass them to the operating system (that is the software that makes your machine usable, such as Windows, Mac, Linux).  The operating system, on the program&rsquo;s (and your) behalf, allocates the necessary resources in order for the program to be executed.</p>
+
+<p>To abstract this, imagine the computer is merely an entity that can:</p>
+
+<ul>
+<li>Take input</li>
+<li>Process data</li>
+<li>Have a working memory to store calculations</li>
+<li>Have an output, e.g to the screen or a file</li>
+</ul>
+
+<p>So all these tasks are performed when you execute an arbitrary program like BLAST.  BLAST will generally:</p>
+
+<ul>
+<li>Read in the query sequences (the sequences you want to BLAST)</li>
+<li>Scan against a specified BLAST database (a collection of sequences)</li>
+<li>Produce an output</li>
+</ul>
+
+<p>It is the shell&rsquo;s job to interpret the commands as well as the parameters (the options, such as input query) and pass it to the appropriate program.  The shell then waits for this program to complete before asking you to issue another command.  Enough talk, let&rsquo;s look at this example.  On my PC, I open up a shell (via &lsquo;terminal application&rsquo;):</p>
+
+<pre><code class="language-shell">werner.local@parker:~&gt; blastn -query test.fsa -db dros 
+ Score =  135 bits (73),  Expect = 6e-29
+ Identities = 73/73 (100%), Gaps = 0/73 (0%)
+ Strand=Plus/Minus
+
+Query  154114    CGACCGTGACAGGACTCGAACCTGCAATCTTCGGATCCGAAGTCCGACGCCTTATCCATT  154173
+                 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  21232163  CGACCGTGACAGGACTCGAACCTGCAATCTTCGGATCCGAAGTCCGACGCCTTATCCATT  21232104
+
+Query  154174    AGGCCACACGGTC  154186
+                 |||||||||||||
+Sbjct  21232103  AGGCCACACGGTC  21232091
+
+
+ Score =  132 bits (71),  Expect = 8e-28
+ Identities = 73/74 (99%), Gaps = 0/74 (0%)
+ Strand=Plus/Minus
+
+Query  154113    ACGACCGTGACAGGACTCGAACCTGCAATCTTCGGATCCGAAGTCCGACGCCTTATCCAT  154172
+                 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  14017285  ACGACCGTGACAGGACTCGAACCTGCAATCTTCGGATCCGAAGTCCGACGCCTTATCCAT  14017226
+
+Query  154173    TAGGCCACACGGTC  154186
+                 | ||||||||||||
+Sbjct  14017225  TGGGCCACACGGTC  14017212
+
+....extended output....
+</code></pre>
+
+<p>So here, <code>blastn</code> was the command I issued (nucleotide blast), the <code>-query</code> parameter specifies the input FASTA file I would like to BLAST and the <code>-db</code> parameter specifies the database I want to use. Here, it is a custom database of the X chromosome of the fruit fly.  Great, we have our output that we can browse at our leisure.  What happened behind the scene, is the shell interpreted the command I gave, looked for the <code>blastn</code> executable (runnable) file and passed parameters to it.  <code>blastn</code> in turn checked for the input query and the BLAST database and did its thing.  The operating system was in charge of giving it the necessary resources to complete the task and produce the output. I could also add a parameter, <code>-out myblast.txt</code> that will write the output to a file instead of the screen.</p>
+
+<h2 id="why-a-shell">Why a shell?</h2>
+
+<p>You can argue that something like CLC has a component allowing you to BLAST, skipping all the pesky shell business and you would be correct. This example is merely to show you how you can execute something yourself - on your terms. However, CLC being really expensive and not including all the tools you may need, the shell provides a very powerful interface to many Bioinformatics applications, such as alignment, phylogenetics, gene prediction etc. It gives you more control over what you want to run an where.  There is obviously a learning curve associated with such endeavours, but (granted you come from a wet lab background) it is very similar to learning new lab protocols. Added to this, it is possible to write scripts that execute multiple commands successively.</p>
+
+<h2 id="things-you-should-know">Things you should know &hellip;</h2>
+
+<p>Each shell that is opened runs as its own entity.  This means that shells do not interfere with each other.  If you were to run multiple BLASTs in different shells, the outputs to the screen will be restricted to that shell (unless you specified the same output file).  When you close a shell (exit it), it also means that all programs associated with that shell will be terminated.  So you cannot, by default, run something in a shell, close it, and check on it later. There are ways around this, and we&rsquo;ll get to it later.</p>
+
+<h1 id="the-limitations-of-a-local-pc">The limitations of a local PC</h1>
+
+<p>While you can run things on your own PC, chances are that you will at some point need a more powerful PC that has shared access - a server.  A server colloquially refers to a computer system that has vastly more resources that your local PC.  It is intended to &ldquo;serve&rdquo; multiple users and execute massive tasks - such as BLASTing a whole genome against the <code>nr</code> BLAST database. Before we get into gaining access to a shell on a server, we need to understand how modern computers scale.</p>
+
+<h2 id="processing-more-is-more">Processing - more is more</h2>
+
+<p>Modern computers have processors (CPUs) that contain multiple cores.  You can think of a core as a single worker.  When running a program, the operating system assigns the program to a core and the tasks gets executed.  When an application is properly designed, it may make use of multiple cores in order to complete the task quicker.  For instance, if you wanted to BLAST a hundred sequences, it would be nice if you could split this into two sets of 50 sequences and let the BLAST run over two cores. The one worker deals with the first 50 and the second worker deals with the second 50 sequences.  This happens simultaneously, so hypothetically, your running time would be cut in half.</p>
+
+<h2 id="memory-sans-technicalities">Memory (sans technicalities)</h2>
+
+<p>In order for the system to successfully execute its tasks, it needs RAM.  RAM is fast memory that can quickly be accessed by the system.  Information is passed from the RAM to the CPU as required, e.g. a certain part of the BLAST database that needs to be scanned.  When the data are large, more RAM is generally required.  The reason it isn&rsquo;t (always) read from disk as required, is because disks (even faster solid state drives) are vastly slower than RAM.  An analogy would be a worker (the CPU) that waits for a delivery person to bring bricks in order for the worker to build a wall.  If the worker builds faster than the delivery person can deliver, it wastes a lot of time.  So RAM delivers a hundred bricks at a time, while the disk will deliver one brick at a time.  A severe bottleneck for the CPU. A server generally has a lot more RAM and can easily store a lot of data (bricks) for guaranteed fast delivery.</p>
+
+<h2 id="storage">Storage</h2>
+
+<p>Servers are usually set up so they have access to large amount of storage.  While the output of your program may be small enough to store on your local PC, things like BLAST databases often aren&rsquo;t. As far as I can recall, the <code>nr</code> database is 952GB.  Add a few of those together, and you will quickly run out of space.  Servers are also set up to (generally) have faster disk read/write facilities.</p>
+
+<!-- ## Output 
+
+Output is the product of the program.  In the BLAST example, the output is the BLAST hits with associated statistics.  The destination of the output is not static and can be changed.  Two output options were explored, screen (the terminal) and a file. Servers generally also have more storage space and can save a lot more data than a normal PC.  The server is also in a secure room, and together with a good backup system, increases the safety of the outputs produced.  While it is normal for a PC to nowadays have a couple of terabytes (1,000GB) of storage, a server may have hundreds to thousands times more storage - CHPC is at 5 petabytes, which is 5,000 terabytes, which is 5,000,000 GBs. Massive. -->
+
+<h1 id="secure-shell">Secure Shell</h1>
+
+<p>When you open a shell on your PC, it interfaces only with what you have.  It is completely unaware of other machines that you may want to use.  Because your systems administrator would prefer you not to physically enter the server room and work on the server directly, they usually set up an SSH server.  SSH allows you to remotely access a shell from anywhere, as long as you have access to it and the IT infrastructure policies allow it.  At face value, there isn&rsquo;t much of a difference insofar appearances go, but the shell you are working on now is on another machine.  All the commands you run in this shell are executed on this remote machine.  While the output to the screen is obviously on the terminal you&rsquo;re working on, outputs to files are not.</p>
+
+<p>To illustrate, let&rsquo;s try the <code>blastn</code> example I did earlier.</p>
+
+<pre><code class="language-shell">
+werner.local@parker~&gt; ssh werner@someserver
+Enter Password: 
+werner@someserver~&gt; blastn -query test.fsa -db dros
+Command line argument error: Argument &quot;query&quot;. File is not accessible:  `test.fsa'
+</code></pre>
+
+<p>Woopsie. So I ran exactly the same command, but it didn&rsquo;t work.  Why? While the server does have the <code>blastn</code> program, it neither has my <code>test.fsa</code> nor the <code>dros</code> BLAST database.  When you login to a server, you are also using the storage resources of that machine, meaning your files are not visible to it.  However, you do have access to programs/datbases/files that are on this server.  You can also see that my username <code>werner.local</code> has been changed to <code>werner</code>, because my login to <code>someserver</code> is <code>werner</code>. We&rsquo;ll get to copying later, but imagine I did copy my database and query files to the server.  If I ran the same command, I will get the output as I did last.</p>
+
+<pre><code class="language-shell">werner@someserver~&gt; blastn -query test.fsa -db dros
+
+werner@someserver:~&gt; blastn -query test.fsa -db dros 
+ Score =  135 bits (73),  Expect = 6e-29
+ Identities = 73/73 (100%), Gaps = 0/73 (0%)
+ Strand=Plus/Minus
+
+Query  154114    CGACCGTGACAGGACTCGAACCTGCAATCTTCGGATCCGAAGTCCGACGCCTTATCCATT  154173
+                 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  21232163  CGACCGTGACAGGACTCGAACCTGCAATCTTCGGATCCGAAGTCCGACGCCTTATCCATT  21232104
+
+Query  154174    AGGCCACACGGTC  154186
+                 |||||||||||||
+Sbjct  21232103  AGGCCACACGGTC  21232091
+....extended output....
+</code></pre>
+
+<p>Great. Something worked.</p>
+
+<h1 id="high-performance-computing-environments-intermediate">High-performance computing environments (intermediate)</h1>
+
+<p><em>Start here if you are familiar with execution of commands on a server</em></p>
+
+<p>Servers are powerful machines, but they tend to fall over (or be infuriating) when multiple users want to run multiple jobs.  To mitigate this, queuing systems can be employed where each job of a user is put into a queue where it waits for other jobs to complete before it is run.  The user may not get immediate result relief, but it does help the server cope and ensures the safer execution of other tasks.  Queuing systems also allow the implementation of &ldquo;fair usage&rdquo; policies, so one user does not always hog the queue.  Even so, if enough users are using the server, the queue waiting time would eat into productivity.  It is possible to set up multiple servers that share a queuing system to handle more users, but it gets very expensive very quickly and unrealistic for a single research group to fund.</p>
+
+<p>High performance computing (HPC) centers are locations where many servers can be hosted to handle bigger queues/jobs.  The Centre for High Performance Computing in Cape Town is a good example.  The centre hosts thousands of nodes (servers) that can quite easily cope with many users using the queuing system. The nodes at the CHPC each have (at least) 24 cores and can be fully utilized by the users.</p>
+
+<p>Queuing is enforced, and we cannot simply run our applications as in the previous section by simply executing the jobs.  In order to make use of the queue, jobs need to be formalized by something called a PBS script.  PBS (Portable Batch System) is a system that handles the managing of job queues and the execution of each job in the queue. Users ask for certain resources, PBS allocates the appropriate node and executes the task on that node.</p>
+
+<h2 id="cluster-environments">Cluster environments</h2>
+
+<h2 id="modules">Modules</h2>
+
+<p>It is often difficult maintaining multiple software packages on a single system.  This is especially true if two software packages contain incompatible dependencies.  Dependencies are auxiliary files needed for the program to run.  Furthermore, users may require different versions of the same package - newer is not necessarily better or compatible, even.  If, for some reason, Bob would like to use version 2.5.0 of BLAST and Alice would like to use version 2.6.0 of BLAST, it would make their lives difficult if they have to manually specify <code>blastn-2.6.0</code> and <code>blastn-2.5.0</code> where the default command is just <code>blastn</code>.  So instead, with some magic, the software packages can be loaded as <code>modules</code>.  For example, consider the following modules on the CHPC:</p>
+
+<pre><code class="language-shell">ncbi-blast/2.3.0/gcc
+ncbi-blast/2.3.0/intel
+ncbi-blast/2.5.0
+ncbi-blast-2.6.0
+</code></pre>
+
+<p>Bob would like to load <code>ncbi-blast/2.5.0</code> Alice, <code>ncbi-blast-2.6.0</code>. Both would just like to use the command <code>blastn</code>.  So Bob would load the module with:</p>
+
+<pre><code class="language-shell">bob@chpc ~&gt; blastn
+Command not found
+bob@chpc ~&gt; module load ncbi-blast/2.5.0
+bob@chpc ~&gt; blastn
+BLAST query/options error: Either a BLAST database or subject sequence(s) must be specified
+Please refer to the BLAST+ user manual. 
+# It works
+</code></pre>
+
+<p>Alice would do it similarly, but instead load the module with <code>module load ncbi-blast-2.6.0</code>.  Beyond satisfying the grievances of users, it is <em>required</em> to load modules that you intend to use, otherwise these commands will not be available. The modules also makes the task of the administrators at the CHPC easy if you would like to install additional packages that are not available.</p>
+
+<h2 id="pbs-scripts">PBS scripts</h2>
+
+<p>A PBS script is merely a wrapper for the command you would like to execute.  The PBS script contains the  information for the queuing system to allocate resources, the queue the job needs to be run under, the project this job is associated with, the running time required etc. I want to run the previous <code>blastn</code> command on the CHPC.  For this, I prepare the following script:</p>
+
+<pre><code class="language-shell">#!/bin/bash
+#PBS -l select=1:ncpus=24:nodetype=haswell_reg
+#PBS -P CBBI0905
+#PBS -q smp
+#PBS -l walltime=48:00:00
+#PBS -o /home/wsmidt/outputs/myblast.out
+#PBS -e /home/wsmidt/outputs/myblast.err
+
+#PBS -N mytestblast
+#PBS -M werner.smidt@gmail.com
+
+cd $PBS_O_WORKDIR
+
+
+module add chpc/BIOMODULES
+module load ncbi-blast-2.6.0
+
+blastn -query test.fsa -db nr -num_threads 24 
+</code></pre>
+
+<p>Let&rsquo;s go through it line by line:</p>
+
+<ul>
+<li><code>#!/bin/bash</code> - I would like to use BASH as my shell and BASH will interpret my commands</li>
+<li><code>#PBS -l select=1:ncpus=24:nodetype=haswell_reg</code> - <code>-l</code> Passed options to PBS
+
+<ul>
+<li><code>select=1</code> - Select one node for the job</li>
+<li><code>ncpus=24</code> - Make sure the node has at least 24 free cpus (cores)</li>
+<li><code>nodetype=haswell_reg</code> - Not all nodes are made equal, make sure this is an <em>awesome</em> node</li>
+</ul></li>
+<li><code>#PBS -P CBBI0905</code> - This job will be run under the specified project.  This part is essential for auditing processes and queuing</li>
+<li><code>#PBS -q smp</code> - Put the job in the <code>smp</code> queue.  This queue is for jobs needing only one node</li>
+<li><code>#PBS -l walltime=48:00:00</code> -  I would require at most 48 hours.  The execution will terminate if the job isn&rsquo;t done in those hours</li>
+<li><code>#PBS -o /home/wsmidt/outputs/myblast.out</code> - Write the <code>stdout</code> output to <code>myblast.out</code></li>
+<li><code>#PBS -e /home/wsmidt/outputs/myblast.err</code> - Write the <code>stderr</code> output to <code>myblast.err</code></li>
+<li><code>#PBS -N mytestblast</code> - The name of the job (for information purposes)</li>
+<li><code>#PBS -M mymail@gmail.com</code> - Send the relevant mails to this address</li>
+<li><code>#PBS -m abe</code> - Send a mail when:
+    * The job (b)egins
+    * The job (e)nds
+    * The job is (a)borted (error or otherwise)</li>
+<li><code>cd $PBS_O_WORKDIR</code> - This changes the directory to the path we are in when submitting the job. This is not crucial, but is very helpful if the output and your PBS script are to be in the same path</li>
+<li><code>module add chpc/BIOMODULES</code> - Make the <code>BIOMODULES</code> available for loading</li>
+<li><code>module load ncbi-blast-2.6.0</code> - Load the 2.6.0 version of BLAST.  This module will not be available if <code>BIOMODULES</code> was not loaded</li>
+<li><code>blastn -query test.fsa -db nr -num_threads 24</code> - Our command to be executed.  Since no <code>-out</code> parameter was specified, the output will be written to <code>myblast.out</code></li>
+</ul>
+
+<p>You may notice the <code>#</code> prefix for all the PBS options.  This is necessary, because this script will be executed as a normal shell script and the shell will assume each line is a command. There are no <code>PBS</code> commands, but PBS interprets this script and looks for lines that start with <code>#PBS</code> and assigns parameters as determined by it. The shell ignores the lines starting with <code>#</code>.</p>
+
+<p>To expand a bit on the points listed above:</p>
+
+<p>Ask for 1 node of the <code>haswell_reg</code> type and require 24 CPUs.  The queue manager will determine if the required resources are available and if not, put the job in the queue until there are.  The <code>smp</code> queue is the queue of choice here, since it is intended for jobs needing a single node.  Furthermore, we will require a maximum of 48 hours. The job will run under the project &ldquo;CBBI0905&rdquo; with the name &ldquo;mytestblast&rdquo;</p>
+
+<p>Let&rsquo;s examine the next options, <code>-o</code> and <code>-e</code>.  In the shell, you would get two main outputs to screen: standard out (<code>stdout</code>) and standard error (<code>stderr</code>).  Normal output, such as from <code>blastn</code> will be to <code>stdout</code>.  By convention, <code>stdout</code> gives the main output of a program.  The other, <code>stderr</code>,  despite the name, gives additional information, such as <code>I am BLASTing sequence X</code> or some progress information (if the program is designed in such a way).  While on screen these two will appear simultaneously, they are two different &ldquo;streams&rdquo; of output, allowing you to separate the two.  The <code>-o</code> and <code>-e</code> parameters tells PBS where these outputs will be written to.  So no part of <code>stdout</code> will be in <code>myblast.out</code> and no part of <code>stderr</code> will be in <code>myblast.err</code>.  This is useful if something weird happened. For instance, if our <code>blastn</code> query contains an error, this information will be written to <code>stderr</code>, while a successful output will be written to <code>stdout</code>.  The reason the outputs are written to a file by default, is because we cannot implicitly see the output generated by the program after submission to the queuing system. If successful, the output will be in <code>myblast.out</code>, because we didn&rsquo;t explicitly defined an output file in the <code>blastn</code> parameters.</p>
+
+<p>Looking at <code>$PBS_O_WORKDIR</code>, some explanation is required.  <code>PBS_O_WORKDIR</code> is an <em>environment variable</em>, or a type of shortcut to something that has a value associated with it.  In order to get the actual value, a <code>$</code> sign prepends this variable.  So the command <code>cd $PBS_O_WORKDIR</code> will make the shell navigate to the directory from which the script was submitted.  If I submitted the job from <code>/some/random/path</code>, the command would effectively be <code>cd /some/random/path</code>.</p>
+
+<p>We next load the necessary modules that in turn provide us with the commands associated with BLAST, including <code>blastn</code>. Finally, the command is executed on the node assigned by the queueing system.</p>
+
+<h3 id="erm-but-how-do-i-submit-a-job">Erm, but HOW do I submit a job?</h3>
+
+<p>Oh, right. Perhaps a crucial detail I omitted, was the actual submission of the PBS script.  I saved the PBS script as <code>myblast.pbs</code>.  To submit the job, in a shell on the CHPC, issue the following command:</p>
+
+<pre><code class="language-shell">wsmidt@login2 ~&gt; qsub myblast.pbs
+123552.sched
+</code></pre>
+
+<p>The output it gives is an identification of the submitted job.  You can view all the jobs you&rsquo;ve submitted with:</p>
+
+<pre><code class="language-shell">wsmidt@login2 ~&gt; qstat -u wsmidt
+Job id            Name             User              Time Use S Queue
+----------------  ---------------- ----------------  -------- - -----
+123552.sched01    myblast          wsmidt            00:00:01 R smp
+....
+</code></pre>
+
+<p>This gives an overview of all your jobs.  Most are self-explanatory.  The <code>S</code> column shows the state.  This job is currently in the <code>R</code> state.  Other states are <code>Q</code>, the queue state, notifying you the job hasn&rsquo;t started and the <code>E</code> state, which is either &ldquo;end&rdquo; or &ldquo;error&rdquo; (I have to look that up).</p>
+
+<p>Or snoop on other people, with just <code>qstat</code>.</p>
+
+<pre><code class="language-shell">wsmidt@login2 ~&gt; qstat 
+Job id            Name             User              Time Use S Queue
+----------------  ---------------- ----------------  -------- - -----
+497003.sched01    MS_EAAB3         accelrys          48:04:50 R accelrys        
+497028.sched01    relax            bibrahim          2226:28: R normal          
+497052.sched01    MS_EBY0D         accelrys          171:05:2 R accelrys        
+497083.sched01    5DEG10PR3.job    zshaikh           1107:39: R normal          
+497087.sched01    5DEG40PR3.job    zshaikh           1106:00: R normal          
+497090.sched01    5DEG40PR6.job    zshaikh           1092:56: R normal          
+497091.sched01    5DEG40PR9.job    zshaikh           362:22:0 R normal          
+497129.sched01    2-thi+o2         cvanderwesthuize  1096:28: R smp             
+497135.sched01    Mn_doped         dsharma           1093:34: R normal          
+497151.sched01    MS_ECHRJ         accelrys          29:06:39 R accelrys        
+497187.sched01    md               eadeniji          1091:40: R normal          
+497276.sched01    MS_EDRYP         accelrys          690:44:0 R accelrys        
+497278.sched01    md               eadeniji          1084:24: R normal          
+497291.sched01    2+pe_sca         bbulling          1063:31: R smp             
+497332.sched01    LIPO_MD_model2   mmukonyora        4928:53: R normal          
+497349.sched01    MS_EGJXU         accelrys          586:18:4 R accelrys        
+497353.sched01    foamJob_11       gerfort           1059:24: R smp             
+497354.sched01    foamJobpt2_11    gerfort                  0 H smp             
+497355.sched01    foamJob_12       gerfort           1059:08: R smp             
+497356.sched01    foamJobpt2_12    gerfort                  0 H smp             
+497357.sched01    foamJob_13       gerfort           1059:24: R smp             
+497358.sched01    foamJobpt2_13    gerfort                  0 H smp             
+497360.sched01    foamJobpt2_14    gerfort           135:06:5 R smp             
+</code></pre>
+
+<p>You can also kill your job (if you realized you made a mistake) with:</p>
+
+<pre><code class="language-shell">wsmidt@login2 ~&gt; qdel 123552
+</code></pre>
+
+<p>In any event, given the mailing parameters of the script, you should receive at least two mails. One informing you the job has started and the other either saying the job has finished or produced an error.</p>
+
+<h1 id="example">Example</h1>
+
+<p>The previous section was merely an illustration.  In order to get cracking, let&rsquo;s go through a proper example.  We will BLAST a set of 24 nucleotide sequences against the <code>nr</code> database.  I&rsquo;ll work from the perspective of running a simple BLAST command and then pad it with commands/options for PBS submission.  This example may seem trivial, but there are a few things we need to think about:</p>
+
+<ul>
+<li>What do I want to run?</li>
+<li>Where do I want the data to be stored?</li>
+<li>How do I get local data onto the CHPC?</li>
+</ul>
+
+<p>There is a FASTA file, <a href="../blast/chpctutblast">chpctutblast.fsa</a> that you can download to your local machine.  We would like to upload this file to the CHPC.  Before we do that, we need to check the layout of our CHPC storage.  If you are using a Windows machine, get an SSH client like Putty or <a href="https://mobaxterm.mobatek.net/demo.html">MobaXterm</a>. However, I will not include Windows SSH/copying instructions in this guide.  I <em>think</em> MobaXterm can handle file uploads.  Otherwise, in a terminal, issue the following commands:</p>
+
+<pre><code class="language-shell">myuser@myterminal ~&gt; ssh myusername@lengau.chpc.ac.za
+Enter password for 'myusername':
+
+myusername@login2 ~&gt; pwd
+/home/myusername
+
+myusername@login2 ~&gt; ls
+lustre
+
+myusername@login2 ~&gt; 
+</code></pre>
+
+<p>The <code>/home/myusername</code> directory is the one where you land when you log in (the command <code>pwd</code> will show you where you are).  There is limited storage here and should preferably only be used for storing scripts and small data.  The <code>lustre</code> folder provides you access to another storage with a whole lot more storage space. Let&rsquo;s go to the <code>lustre</code> folder and create a folder in there called <code>chpctut</code>.</p>
+
+<pre><code class="language-shell">#Change and making a directory
+myuser@login2 ~&gt; cd ~/lustre
+myuser@login2 ~&gt; mkdir chpctut
+myuser@login2 ~&gt; ls chpctut
+#....Nothing
+</code></pre>
+
+<p>The reason for the tilde (<code>~</code>) in the first command, is because it is shorthand for <code>/home/myusername</code>.  Open a new terminal and navigate to the path where you saved <code>chpctutblast.fas</code>.  While we logged in to the CHPC by connecting to <code>lengau.chpc.ac.za</code>, it is expected that you upload files using another server, <code>scp.chpc.ac.za</code>.  The SCP command is used to upload files to a location on a machine for which you have SSH access to.</p>
+
+<pre><code class="language-shell">myuser@myterminal ~&gt; cd folder_with_fasta_filename
+myuser@myterminal ~&gt; scp chpctutblast.fsa myuser@scp.chpc.ac.za:~/lustre/chpctut
+#Password
+
+myuser@myterminal ~&gt; ssh myusername@lengau.chpc.ac.za
+myuser@login2 ~&gt; cd ~/lustre/chpctut
+myuser@login2 ~&gt; ls
+chpctutblast.fas
+
+
+</code></pre>
+
+<p>Great! Our file is there. The command we wish to run using this file as input, is:</p>
+
+<pre><code class="language-shell">blastn -query chpctutblast.fsa -db nr -num_threads 24 -out ~/lustre/chpctut/blastoutput.xml -format 5
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+</code></pre>
+
+<p>=======
+``
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; a622b6000e83fcc4edc7a6c98a6bb37bb0d08634</p>
+
+<p>It will run a BLAST with <code>chcpctutblast.fsa</code> as input and <code>nr</code> as the database, using up to 24 CPU cores (<code>-num_threads</code>) and writing the output to the <code>chcpctut</code> folder, alongside the chpctutblast.fsa file.  Now that we know what we want to do, it becomes a little easier to write a PBS script.</p>
+
+<p>Open a text editor (<em>not</em> MS Word/similar.  You need to save this as <em>unformatted text</em>).  Save a new file &ldquo;chpctutblast.pbs&rdquo;. You can use the earlier example PBS script we used as a reference.  Even for people that are familiar with submitting cluster jobs, it is prudent to not rush in writing your PBS script. Ask yourself a few questions.</p>
+
+<ul>
+<li>What is it I want to run?</li>
+<li>What is needed in order for this command to run?</li>
+<li>How long do I estimate the runtime to be? How much resources do I need? What node types?</li>
+<li>What will I name the job?</li>
+<li>Do I want confirmation that the job has started/ended/aborted?</li>
+<li>Where do I want to store my data?</li>
+<li>Do I need to be in the directory where the script was submitted from?</li>
+</ul>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="/bcbuguides/chpc/" title="_index"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/bcbuguides/ngs/" title="_index" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/bcbuguides/js/clipboard.min.js?1507631311"></script>
+    <script src="/bcbuguides/js/perfect-scrollbar.min.js?1507631311"></script>
+    <script src="/bcbuguides/js/perfect-scrollbar.jquery.min.js?1507631311"></script>
+    <script src="/bcbuguides/js/jquery.sticky-kit.min.js?1507631311"></script>
+    <script src="/bcbuguides/js/featherlight.min.js?1507631311"></script>
+    <script src="/bcbuguides/js/html5shiv-printshiv.min.js?1507631311"></script>
+    <script src="/bcbuguides/js/highlight.pack.js?1507631311"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/bcbuguides/js/modernizr.custom.71422.js?1507631311"></script>
+    <script src="/bcbuguides/js/learn.js?1507631311"></script>
+    <script src="/bcbuguides/js/hugo-learn.js?1507631311"></script>
+
+    <link href="/bcbuguides/mermaid/mermaid.css?1507631311" type="text/css" rel="stylesheet" />
+    <script src="/bcbuguides/mermaid/mermaid.js?1507631311"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

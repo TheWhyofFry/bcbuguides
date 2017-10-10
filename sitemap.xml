@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/bash/_intro/</loc>
+    <lastmod>2017-10-10T11:51:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/chpc/chpcprep/</loc>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/chpc/</loc>
+    <lastmod>2017-10-10T12:13:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/ngs/</loc>
+    <lastmod>2017-10-10T12:12:21+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/ngs/rnaseq/</loc>
+    <lastmod>2017-10-10T12:12:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/</loc>
+    <lastmod>2017-10-10T11:51:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/bash/bashmagic/</loc>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/bash/</loc>
+    <lastmod>2017-10-10T11:51:47+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://thewhyoffry.github.io/bcbuguides/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
