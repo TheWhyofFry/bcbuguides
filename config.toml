@@ -1,3 +1,10 @@
-baseURL = "http://example.org/"
+baseURL = "http://thewhyoffry.github.io/bcbuguides"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "General Bioinformatics Guides"
+
+# Change the default theme to be use when building the site with Hugo
+theme = "hugo-theme-learn"
+
+# For search functionnality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
